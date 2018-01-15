@@ -1,0 +1,65 @@
+{% extends 'twit/base.html' %}
+{% load twitter_tags %}
+{% block title %}Search followers{% endblock %}
+{% block content %}
+
+    <div class="container search-page">
+        <div class="row search-page-form">
+            <form action="" method="post" class="col-12">
+                <div class="field col-8">
+                    {{ form.search_input }}
+                    {{ form.search_input.errors }}
+                </div>
+                <div class="field col-2">
+                    {% for choice in form.action.field.choices %}
+                        <div class="">
+                            <input id="id_doing_{{ choice.0 }}" type="radio" name="action" value="{{ choice.0 }}"
+                                    {% ifequal form.data.action choice.0 %} checked {% endifequal %}/>
+                            <label for="id_doing_{{ choice.0 }}">{{ choice.1 }}</label>
+                        </div>
+                    {% endfor %}
+                    {{ form.action.errors }}
+                </div>
+                {% csrf_token %}
+                <input type="submit" value="Go" name="submit" class="btn btn-success col-2">
+            </form>
+            {{ s_user }}
+
+        </div>
+
+        <div class="row">
+            {% if mess.error %}
+                <div class="col-12 alert alert-danger">{{ mess.error }}</div>
+            {% elif mess.good %}
+                <div class="col-12 alert alert-success">{{ mess.good }}</div>
+            {% elif mess.info %}
+                <div class="col-12 alert alert-info">{{ mess.info }}</div>
+            {% endif %}
+        </div>
+
+        <div class="row follower-list">
+            {% if follow_list %}
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Screen name</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">User Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for follower in follow_list %}
+                        <tr>
+                            <td>{{ follower.screen_name }}</td>
+                            <td>{{ follower.name_foll }}</td>
+                            <td>{{ follower.id_foll }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+                <p class="col-12 alert alert-info"> You don't add follower yet!</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

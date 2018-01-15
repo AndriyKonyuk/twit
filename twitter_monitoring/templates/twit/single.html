@@ -1,0 +1,42 @@
+{% extends 'twit/base.html' %}
+{% block title %}Tweet: {{ single_tweet.tweet_id }} {% endblock %}
+{% block content %}
+
+    <div class="container singl-t-page">
+        <div class="row tweet tweet-post">
+            <div class="tweet-foto">
+                    <span class="tweet-foto-wr">
+                        <img src="{{ f_info.2 }}" alt="">
+                    </span>
+            </div>
+            <div class="tweet-content">
+                <h3 class="name">{{ f_info.0 }} <span>@{{ f_info.1 }}</span></h3>
+                <div class="tweet-content-media">
+                    <p>{{ single_tweet.text }}</p>
+                    {% if single_tweet.tweet_img_url != 'None' %}
+                        <img src="{{ single_tweet.tweet_img_url }}" alt="">
+                    {% elif single_tweet.tweet_video_url != 'None' %}
+                        <video width="320" height="240" controls>
+                            <source src="{{ single_tweet.tweet_video_url }}" type="video/mp4">
+                        </video>
+                    {% endif %}
+                </div>
+                <div class="tweet-bottom">
+                    <span>
+                        <i class="far fa-heart"></i>
+                        {{ single_tweet.likes }}
+                    </span>
+                    <span>
+                        <i class="fas fa-retweet"></i>
+                        {{ single_tweet.retweet }}
+                    </span>
+                    <span>
+                        <i class="far fa-calendar-alt"></i>
+                        {{ single_tweet.date }}
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

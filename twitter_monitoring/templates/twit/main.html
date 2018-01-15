@@ -1,0 +1,52 @@
+{% extends 'twit/base.html' %}
+{% load twitter_tags %}
+{% block title %}Main page{% endblock %}
+{% block content %}
+    <div class="container main-page">
+        <div class="row">
+            {% for i in query_tweet %}
+                    <div class="tweet col-12 tweet-post">
+                        <a href="/tweet/{{ i.tweet_id }}">
+                            <div class="tweet-foto">
+                            <span class="tweet-foto-wr">
+                                <img src="{{ i.tweet_owner.user_img }}" alt="">
+                            </span>
+                            </div>
+                            <div class="tweet-content">
+                                <h3 class="name">{{ i.tweet_owner.name_foll }} <span>@{{ i.tweet_owner.screen_name }}</span></h3>
+                                <div class="tweet-content-media">
+                                    <p>{{ i.text }}</p>
+                                    {% if i.tweet_img_url != 'None' %}
+                                        <img src="{{ i.tweet_img_url }}" alt="">
+                                    {% elif i.tweet_video_url != 'None' %}
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ i.tweet_video_url }}" type="video/mp4">
+                                        </video>
+                                    {% endif %}
+                                </div>
+                                <div class="tweet-bottom">
+                                    <span>
+                                        <i class="far fa-heart"></i>
+                                        {{ i.likes }}
+                                    </span>
+                                            <span>
+                                        <i class="fas fa-retweet"></i>
+                                        {{ i.retweet }}
+                                    </span>
+                                            <span>
+                                        <i class="far fa-calendar-alt"></i>
+                                        {{ i.date }}
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+            {% endfor %}
+        </div>
+{#    <div class="row">#}
+{#        {% for i in q_s %}#}
+{#            <p class="col-12">{{ i.date }}{{ i.tweet_owner.user_img }}{{ i.tweet_owner.name_foll }}</p>#}
+{#        {% endfor %}#}
+{#    </div>#}
+    </div>
+{% endblock %}

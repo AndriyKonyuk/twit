@@ -1,0 +1,12 @@
+{% extends 'twit/base.html' %}
+{% block content %}
+    <div class="container reg-page">
+        <div class="row justify-content-center align-items-center reg-page-form">
+            <form action="" method="post" class="col-8 col-xs-5 col-md-4">
+                {{ form }}
+                {% csrf_token %}
+                <input type="submit" value="Sing Up" class="col-12 btn btn-success">
+            </form>
+        </div>
+    </div>
+{% endblock %}
