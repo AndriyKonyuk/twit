@@ -1,0 +1,181 @@
+body {
+  background: #f9f9f9;
+}
+
+.login-page {
+  .login-page-form {
+    height: 100vh;
+  }
+}
+
+.reg-page {
+  .reg-page-form {
+    height: 100vh;
+  }
+}
+
+.login-page, .reg-page {
+  form {
+    background: #fff;
+    border: 1px solid #d8dee2;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 14px;
+    input {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+
+    }
+  }
+}
+
+.search-page {
+  label {
+    margin-bottom: 0;
+  }
+  .search-page-form {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    form {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .field {
+        #id_search_input {
+          height: 100%;
+        }
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+      input {
+        &:last-child {
+
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}
+.tweet {
+  border-bottom: 1px solid #e6ecf0;
+  cursor: pointer;
+  padding: 9px 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  &:first-child {
+    border-top: 1px solid #e6ecf0;
+  }
+  &:hover {
+    background-color: #f5f8fa;
+  }
+  a {
+    color: #000;
+
+    &:hover {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+.singl-t-page {
+  margin-top: 25px;
+  .tweet-content {
+    width: 94%;
+  }
+}
+
+.tweet-post {
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+  }
+}
+
+.tweet-foto {
+  padding-right: 10px;
+  .tweet-foto-wr {
+    display: block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 2px #000;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.tweet-content {
+  width: 100%;
+  .name {
+    color: #14171a;
+    font-size: 14px;
+    font-weight: bold;
+    span {
+      padding-left: 5px;
+      font-size: 14px;
+      color: #657786;
+      font-weight: 300;
+    }
+  }
+}
+
+.tweet-content-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    width: 100%;
+  }
+  img {
+    width: 50%;
+  }
+}
+
+.tweet-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  span {
+    padding-left: 15px;
+  }
+}
+#navbarText {
+  ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+    li {
+      padding-right: 20px;
+    }
+  }
+}
+.navbar {
+  .row {
+    width: 100%;
+  }
+  .info-aboutu span {
+    display: block;
+    text-align: right;
+    padding: .5rem 0;
+    color: rgba(255, 255, 255, 0.75);
+    &:hover {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 1);
+
+    }
+  }
+}
